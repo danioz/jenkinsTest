@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'python:3.12-slim' }  // Or 'python:3.11-slim' if needed
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -8,7 +10,7 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh 'pip install -r requirements.txt'  // 'pip' is sufficient inside Python container
             }
         }
         stage('Run API Tests') {
