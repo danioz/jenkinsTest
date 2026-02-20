@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Uruchamia na hoście Jenkinsa
+    agent any
     stages {
         stage('Checkout') {
             steps {
